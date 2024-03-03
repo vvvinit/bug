@@ -77,18 +77,31 @@ const buttonRefs = useRef(Array(7).fill(null));
   };
 
   useEffect(() => {
+
     const handleClick = (event) => {
       const img = document.createElement('img');
       img.src = myMelodyImage; // Use the imported image
       img.style.position = 'absolute';
       img.style.width = '15vw';
-      img.style.opacity = 0.5;
+      img.style.opacity = 0; // Set initial opacity to 0
+      img.style.transition = 'opacity 1s'; // Transition applies to opacity
       img.style.draggable = 'false';
       img.onload = () => {
         img.style.left = `${event.clientX - img.width / 2}px`;
         img.style.top = `${event.clientY - img.height / 2}px`;
+        img.style.opacity = 0.6; // Change opacity to 0.5 after the image has loaded
       };
       document.body.appendChild(img);
+    
+      // Start the fade out after 3 seconds
+      setTimeout(() => {
+        img.style.opacity = 0;
+      }, 5000);
+    
+      // Remove the image after 4 seconds (1 second after the fade out completes)
+      setTimeout(() => {
+        document.body.removeChild(img);
+      }, 6000);
     };
   
     // Add the event listener to the document
