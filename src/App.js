@@ -26,7 +26,7 @@ function Header() {
       <nav>
         <ul>
           <li><Link to="/solve-me-if-you-are-a-cat">bug puzzle</Link></li>
-          <li><Link to="/cute-and-pretty-artwork">cute art</Link></li>
+          <li><Link to="/cute-and-pretty-artwork">cute art :3</Link></li>
         </ul>
       </nav>
     </header>
