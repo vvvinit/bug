@@ -1,0 +1,166 @@
+/* CatPuzzle.css */
+
+/* Puzzle Window */
+.puzzle-window {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35vh; /* 40% of viewport height */
+  background-color: transparent; /* Dark purple background */
+  padding: 20px;
+  box-sizing: border-box;
+  position: fixed;
+  top: 30%; /* Adjust as needed */
+  left: 30%; /* Adjust as needed */
+  width: 40%; /* 40% of viewport width */
+  border-radius: 15px; /* Rounded corners */
+}
+
+/* Puzzle Container */
+.puzzle-container {
+  background-color: #f2e7f6; /* Pastel purple background */
+  padding: 20px;
+  border: 1.5px solid #170028; /* Super dark purple border */
+  border-radius: 15px; /* Rounded corners */
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  position: relative;
+  height: 100%; /* Ensure container fills the puzzle window */
+}
+
+/* Hearts */
+.hearts {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+.heart-icon {
+  width: 30px; /* Adjust size as needed */
+  height: auto; /* Maintain aspect ratio */
+  margin-left: 5px; /* Add spacing between hearts */
+}
+
+/* Question Container */
+.question-container {
+  margin-bottom: 20px;
+}
+
+.question-container h2,
+.question-container p {
+  color: #2e004f; /* Super dark text */
+}
+
+/* Options */
+.options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.options button {
+  margin: 5px;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  background-color: #fff; /* White background */
+  border: 2px solid #4b0082; /* Super dark purple border */
+  color: #4b0082; /* Super dark purple text */
+  border-radius: 10px; /* Rounded corners */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.options button:hover {
+  background-color: #4b0082; /* Super dark purple background */
+  color: #fff; /* White text */
+}
+
+/* Text Answer */
+.text-answer {
+  margin-top: 10px;
+}
+
+.text-answer input {
+  padding: 8px;
+  border: 2px solid #4b0082; /* Super dark purple border */
+  border-radius: 5px; /* Rounded corners */
+}
+
+.text-answer button {
+  margin-left: 10px;
+  padding: 8px 20px;
+  background-color: #fff; /* White background */
+  border: 2px solid #4b0082; /* Super dark purple border */
+  color: #4b0082; /* Super dark purple text */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.text-answer button:hover {
+  background-color: #4b0082; /* Super dark purple background */
+  color: #fff; /* White text */
+}
+
+/* Cute Cat */
+.cute-cat {
+  width: 200px; /* Adjust size as needed */
+  height: auto; /* Maintain aspect ratio */
+  margin-top: 20px;
+  opacity: 1; /* Ensure the cat is visible */
+  transition: opacity 0.3s ease; /* Smooth transition for opacity */
+}
+
+/* Explode Heart Animation */
+@keyframes explodeAnimation {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+.explode-heart {
+  position: absolute;
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%);
+  width: 40px; /* Adjust size as needed */
+  height: auto; /* Maintain aspect ratio */
+  animation: explodeAnimation 0.3s ease forwards;
+}
+
+/* Congratulations Window */
+.congratulations-window {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f2e7f6; /* Pastel purple background */
+  padding: 20px;
+  border: 5px solid #4b0082; /* Super dark purple border */
+  border-radius: 15px; /* Rounded corners */
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+}
+
+.congratulations-window h2 {
+  color: #2e004f; /* Super dark text */
+  margin-bottom: 10px;
+}
+
+.congratulations-window p {
+  color: #2e004f; /* Super dark text */
+  margin-bottom: 20px;
+}
+
+.congratulations-window img {
+  width: 200px; /* Adjust size as needed */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .puzzle-container {
+    padding: 10px;
+  }
+}
