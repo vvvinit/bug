@@ -1,10 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate, useLocation } from 'react-router-dom';
 import { ROUTES } from './constants';
-import { Navigation, HomePage, CatPuzzlePage, ArtworkGalleryPage } from './components';
+import { Navigation, HomePage, CatPuzzlePage, ArtworkGalleryPage, TicTacToePage } from './components';
 import './styles/App.css';
 import './styles/components.css';
 import './styles/puzzle.css';
+import './styles/tictactoe.css';
 
 function AppContent() {
   const location = useLocation();
@@ -18,6 +19,7 @@ function AppContent() {
         <Route path={ROUTES.HOME} element={<HomePage />} />
         <Route path={ROUTES.CAT_PUZZLE} element={<CatPuzzlePage />} />
         <Route path={ROUTES.ARTWORK_GALLERY} element={<ArtworkGalleryPage />} />
+        <Route path={ROUTES.TIC_TAC_TOE} element={<TicTacToePage />} />
         {/* Catch-all route - redirect any invalid path to homepage */}
         <Route path="*" element={<Navigate to={ROUTES.HOME} replace />} />
       </Routes>

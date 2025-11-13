@@ -25,10 +25,12 @@ export const ROUTES = {
   HOME: '/',
   CAT_PUZZLE: '/solve-me-if-you-are-a-cat',
   ARTWORK_GALLERY: '/cute-and-pretty-artwork',
+  TIC_TAC_TOE: '/lets-play-together',
 };
 
 // Navigation labels
 export const NAV_LABELS = {
   CAT_PUZZLE: 'bug puzzle',
   ARTWORK_GALLERY: 'cute art :3',
+  TIC_TAC_TOE: 'play with me 🎮',
 };

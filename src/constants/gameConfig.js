@@ -60,7 +60,8 @@ export const QUIZ_QUESTIONS = [
 
 // Page titles
 export const PAGE_TITLES = {
-  CAT_PUZZLE: 'the cat puzzle :3',
-  ARTWORK_GALLERY: 'Happy pride month!!! :3',
-  HOME: 'Bug - A Cute Surprise :3'
+  CAT_PUZZLE: 'are you a cat? let\'s find out! 🐱',
+  ARTWORK_GALLERY: 'cute memories together 💕',
+  HOME: 'bug - a little surprise made with love 🌸',
+  TIC_TAC_TOE: 'let\'s play together! 🎮💕'
 };

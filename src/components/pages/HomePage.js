@@ -27,6 +27,13 @@ const HomePage = () => {
               <p>browse beautiful artwork 🎨</p>
             </div>
           </Link>
+
+          <Link to={ROUTES.TIC_TAC_TOE} className="home-link">
+            <div className="home-card">
+              <h3>{NAV_LABELS.TIC_TAC_TOE}</h3>
+              <p>let's have some fun together! 💕</p>
+            </div>
+          </Link>
         </div>
       </div>
     </div>

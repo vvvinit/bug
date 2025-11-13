@@ -16,6 +16,9 @@ const Navigation = () => {
           <li>
             <Link to={ROUTES.ARTWORK_GALLERY}>{NAV_LABELS.ARTWORK_GALLERY}</Link>
           </li>
+          <li>
+            <Link to={ROUTES.TIC_TAC_TOE}>{NAV_LABELS.TIC_TAC_TOE}</Link>
+          </li>
         </ul>
       </nav>
     </header>

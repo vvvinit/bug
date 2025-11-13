@@ -7,6 +7,7 @@ export { default as ErrorMessage } from './common/ErrorMessage';
 export { default as HomePage } from './pages/HomePage';
 export { default as CatPuzzlePage } from './pages/CatPuzzlePage';
 export { default as ArtworkGalleryPage } from './pages/ArtworkGalleryPage';
+export { default as TicTacToePage } from './pages/TicTacToePage';
 
 // Puzzle components
 export { default as QuestionDisplay } from './puzzle/QuestionDisplay';

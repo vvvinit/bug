@@ -1,0 +1,336 @@
+/* Tic-Tac-Toe Game Styles */
+
+.tictactoe-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(135deg, 
+    #ffeef8 0%,    /* Very light pink */
+    #f8d7da 25%,   /* Soft pink */
+    #f5c2c7 50%,   /* Medium pink */
+    #f1aeb5 75%,   /* Deeper pink */
+    #e8a2aa 100%   /* Rich pink */
+  );
+  padding: 20px;
+  padding-top: 3rem; /* Match other pages */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  overflow-y: auto; /* Allow scrolling if needed */
+}
+
+.tictactoe-container {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 25px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(232, 162, 170, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Game Header */
+.game-header h1 {
+  color: #6b2c5c;
+  font-size: 2rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.game-header p {
+  color: #5a2448;
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
+
+/* Game Status */
+.game-status {
+  margin-bottom: 30px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.status-emoji {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  animation: statusBounce 2s ease-in-out infinite;
+}
+
+.status-title {
+  color: #6b2c5c;
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.status-message {
+  color: #5a2448;
+  font-size: 1rem;
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+
+/* Turn Indicator */
+.turn-indicator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.player-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 10px 15px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  opacity: 0.6;
+}
+
+.player-indicator.active {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(1.1);
+}
+
+.player-symbol {
+  font-size: 1.8rem;
+}
+
+.player-label {
+  font-size: 0.9rem;
+  color: #6b2c5c;
+  font-weight: 500;
+}
+
+.vs-divider {
+  color: #8b5a6b;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* Game Board */
+.game-board {
+  margin: 30px 0;
+}
+
+.board-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 8px;
+  max-width: 300px;
+  margin: 0 auto;
+  aspect-ratio: 1;
+}
+
+.game-cell {
+  background: rgba(255, 255, 255, 0.4);
+  border: 2px solid rgba(216, 180, 254, 0.3);
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  min-height: 80px;
+  overflow: hidden;
+}
+
+.game-cell:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.6);
+  border-color: rgba(216, 180, 254, 0.6);
+  transform: scale(1.05);
+}
+
+.game-cell:disabled {
+  cursor: not-allowed;
+}
+
+.game-cell.filled-cell {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.game-cell.winning-cell {
+  background: linear-gradient(135deg, #d8b4fe, #c084fc);
+  border-color: #a855f7;
+  animation: winningPulse 1s ease-in-out infinite;
+}
+
+.cell-content {
+  position: relative;
+  z-index: 2;
+  animation: cellAppear 0.3s ease-out;
+}
+
+.cell-hover {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  font-size: 1.5rem;
+  z-index: 1;
+}
+
+.game-cell:hover .cell-hover {
+  opacity: 0.6;
+}
+
+.game-cell.filled-cell .cell-hover {
+  display: none;
+}
+
+/* Game Controls */
+.game-controls {
+  margin: 30px 0 20px 0;
+}
+
+.cute-reset-button {
+  background: linear-gradient(135deg, #d8b4fe, #c084fc);
+  color: #6b2c5c;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(216, 180, 254, 0.3);
+}
+
+.cute-reset-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(216, 180, 254, 0.4);
+  background: linear-gradient(135deg, #c084fc, #a855f7);
+}
+
+/* Game Tips */
+.game-tips {
+  margin-top: 20px;
+}
+
+.game-tips p {
+  color: #8b5a6b;
+  font-size: 0.9rem;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+/* Animations */
+@keyframes statusBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes winningPulse {
+  0%, 100% { 
+    box-shadow: 0 0 0 0 rgba(168, 85, 247, 0.4);
+    transform: scale(1);
+  }
+  50% { 
+    box-shadow: 0 0 0 8px rgba(168, 85, 247, 0);
+    transform: scale(1.05);
+  }
+}
+
+@keyframes cellAppear {
+  0% { 
+    transform: scale(0) rotate(180deg);
+    opacity: 0;
+  }
+  100% { 
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+/* Game Status Variants */
+.game-status.won {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(22, 163, 74, 0.1));
+  border-color: rgba(34, 197, 94, 0.3);
+}
+
+.game-status.lost {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(220, 38, 38, 0.1));
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.game-status.draw {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(217, 119, 6, 0.1));
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .tictactoe-page {
+    padding: 15px;
+    padding-top: 2.5rem;
+  }
+  
+  .tictactoe-container {
+    padding: 25px;
+  }
+  
+  .game-header h1 {
+    font-size: 1.6rem;
+  }
+  
+  .board-grid {
+    max-width: 250px;
+    gap: 6px;
+  }
+  
+  .game-cell {
+    font-size: 2rem;
+    min-height: 60px;
+  }
+  
+  .status-emoji {
+    font-size: 2.5rem;
+  }
+  
+  .player-symbol {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .tictactoe-container {
+    padding: 20px;
+  }
+  
+  .board-grid {
+    max-width: 220px;
+  }
+  
+  .game-cell {
+    font-size: 1.8rem;
+    min-height: 50px;
+  }
+  
+  .turn-indicator {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .vs-divider {
+    transform: rotate(90deg);
+  }
+}
