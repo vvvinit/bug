@@ -1,35 +1,35 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import Home from './Home';
-import CatPuzzle from './CatPuzzle';
-import CuteAndPrettyArtwork from './CuteAndPrettyArtwork';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes, Navigate, useLocation } from 'react-router-dom';
+import { ROUTES } from './constants';
+import { Navigation, HomePage, CatPuzzlePage, ArtworkGalleryPage } from './components';
+import './styles/App.css';
+import './styles/components.css';
+import './styles/puzzle.css';
+
+function AppContent() {
+  const location = useLocation();
+  const isHomePage = location.pathname === ROUTES.HOME;
+
+  return (
+    <div className="App">
+      {/* Only show navigation if not on home page */}
+      {!isHomePage && <Navigation />}
+      <Routes>
+        <Route path={ROUTES.HOME} element={<HomePage />} />
+        <Route path={ROUTES.CAT_PUZZLE} element={<CatPuzzlePage />} />
+        <Route path={ROUTES.ARTWORK_GALLERY} element={<ArtworkGalleryPage />} />
+        {/* Catch-all route - redirect any invalid path to homepage */}
+        <Route path="*" element={<Navigate to={ROUTES.HOME} replace />} />
+      </Routes>
+    </div>
+  );
+}
 
 function App() {
   return (
     <Router>
-      <div className="App">
-        <Routes>
-          <Route path="/" element={<Header />} /> {/* Always render Header */}
-          <Route path="/" element={<Home />} />
-          <Route path="/solve-me-if-you-are-a-cat" element={<CatPuzzle />} />
-          <Route path="/cute-and-pretty-artwork" element={<CuteAndPrettyArtwork />} />
-        </Routes>
-      </div>
+      <AppContent />
     </Router>
-  );
-}
-
-function Header() {
-  return (
-    <header className="App-header">
-      <nav>
-        <ul>
-          <li><Link to="/solve-me-if-you-are-a-cat">bug puzzle</Link></li>
-          <li><Link to="/cute-and-pretty-artwork">cute art :3</Link></li>
-        </ul>
-      </nav>
-    </header>
   );
 }
 

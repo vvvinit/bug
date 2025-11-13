@@ -1,0 +1,302 @@
+/* Page Layout */
+.puzzle-page {
+  min-height: calc(100vh - 140px);
+  padding: 2rem 1rem;
+  padding-top: 3rem; /* Extra space for header */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Common Components */
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  color: #2e004f;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #4b0082;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.error-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  text-align: center;
+  color: #2e004f;
+  padding: 20px;
+}
+
+.error-message h3 {
+  color: #d32f2f;
+  margin-bottom: 10px;
+}
+
+.retry-button, .restart-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #4b0082;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+}
+
+.retry-button:hover, .restart-button:hover {
+  background-color: #2e004f;
+}
+
+/* Home Page */
+.home-page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, 
+    #ffeef8 0%,    /* Very light pink */
+    #f8d7da 25%,   /* Soft pink */
+    #f5c2c7 50%,   /* Medium pink */
+    #f1aeb5 75%,   /* Deeper pink */
+    #e8a2aa 100%   /* Rich pink */
+  );
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.home-content {
+  text-align: center;
+  color: #4a1c40; /* Deep purple-pink for better contrast */
+  max-width: 800px;
+}
+
+.home-content h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(255,255,255,0.3);
+  color: #6b2c5c; /* Rich purple-pink */
+}
+
+.home-content p {
+  font-size: 1.2em;
+  margin-bottom: 40px;
+  opacity: 0.8;
+  color: #5a2448; /* Slightly lighter than h1 */
+}
+
+.home-navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  gap: 40px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.home-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.home-card {
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 32px rgba(106, 44, 92, 0.1);
+  min-width: 250px;
+  max-width: 300px;
+  flex: 0 0 auto;
+  text-align: center;
+}
+
+.home-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(106, 44, 92, 0.2);
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.home-card h3 {
+  font-size: 1.5em;
+  margin-bottom: 15px;
+  color: #6b2c5c;
+  font-weight: 600;
+}
+
+.home-card p {
+  opacity: 0.8;
+  margin: 0;
+  color: #5a2448;
+}
+
+/* No images message */
+.no-images-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  text-align: center;
+  color: #6b2c5c;
+}
+
+/* Artwork loading */
+.artwork-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  text-align: center;
+  color: #6b2c5c;
+}
+
+.pastel-loader {
+  font-size: 3rem;
+  animation: pastelSpin 2s ease-in-out infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes pastelSpin {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.2); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+.no-images-message h2 {
+  margin-bottom: 10px;
+}
+
+/* Floating buttons */
+.floating-button {
+  transition: opacity 0.3s ease;
+}
+
+.floating-button:disabled {
+  cursor: not-allowed !important;
+}
+
+/* Image display */
+.image-display {
+  max-width: 70vw;
+  max-height: 60vh;
+  object-fit: contain;
+  border: 0.3vw solid #CAABD8;
+  border-radius: 15px;
+  box-shadow: 0 0 20px 5px rgba(113, 66, 136, 0.4);
+  box-sizing: border-box;
+  position: relative;
+  z-index: 100;
+}
+
+/* Image container for smooth transitions */
+.image-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70vw;
+  height: 60vh;
+}
+
+/* Memory class for artwork images */
+.Memory {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border: 0.3vw solid #CAABD8;
+  border-radius: 15px;
+  box-shadow: 0 0 20px 5px rgba(113, 66, 136, 0.4);
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  transition: opacity 0.6s ease-in-out;
+}
+
+/* Current image states */
+.Memory.current-image.visible {
+  opacity: 1;
+}
+
+.Memory.current-image.fade-out {
+  opacity: 0;
+}
+
+/* Next image states */
+.Memory.next-image.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.Memory.next-image.fade-in {
+  opacity: 1;
+  visibility: visible;
+  z-index: 1001; /* Above current image during transition */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .home-page {
+    padding: 20px; /* No extra padding needed since no navigation */
+  }
+  
+  .home-content h1 {
+    font-size: 2em;
+  }
+  
+  .home-navigation {
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+  }
+  
+  .home-card {
+    padding: 25px;
+    min-width: 280px;
+    max-width: 320px;
+  }
+  
+  .image-container {
+    width: 90vw;
+    height: 50vh;
+  }
+  
+  .Memory {
+    border-width: 0.5vw;
+  }
+  
+  .cute-and-pretty-artwork-page {
+    padding-top: 120px; /* Smaller header on mobile */
+  }
+}

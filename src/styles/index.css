@@ -1,22 +1,15 @@
 body {
-  width: 100vw;
-  height: 100vh;
   margin: 0;
+  padding: 0;
   font-family: 'Comic Neue', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  cursor: url('/src/cursor.ico') 16 16, auto;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
+  cursor: url('../assets/images/cursor.ico') 16 16, auto;
   background-color: #F7DAD9;
   color: white;
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
+  overflow-x: hidden;
 }
 
 code {

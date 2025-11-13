@@ -1,0 +1,108 @@
+.App {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  padding-top: 1rem; /* Add spacing from top */
+}
+
+.App-header {
+    background: linear-gradient(135deg, #d8b4fe, #c084fc); /* Pastel purple gradient */
+    color: #6b2c5c; /* Deep purple-pink text */
+    padding: 15px 30px; /* Compact padding */
+    position: -webkit-sticky; /* For Safari */
+    position: sticky; /* Sticky position */
+    top: 1rem; /* Account for app padding */
+    width: fit-content; /* Only as wide as content */
+    max-width: 500px; /* Maximum width limit */
+    margin: 0 auto; /* Center horizontally */
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 1001; /* Ensure it stays on top of artwork background */
+    box-shadow: 0 4px 20px rgba(214, 188, 250, 0.3); /* Pastel purple shadow */
+    border-radius: 30px; /* More rounded for pill shape */
+    border: 2px solid rgba(255, 255, 255, 0.4); /* Subtle white border */
+    transition: all 0.3s ease; /* Smooth transition */
+    backdrop-filter: blur(10px); /* Glass effect */
+  }
+  
+  .App-header:hover {
+    border-color: rgba(255, 182, 193, 0.6); /* Pink border on hover */
+    box-shadow: 0 6px 25px rgba(214, 188, 250, 0.4); /* Enhanced shadow on hover */
+  }
+  
+  .App-header nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Center the navigation links */
+  }
+  
+  .App-header nav ul li {
+    margin: 0 8px; /* Tighter spacing between links */
+  }
+  
+  .App-header nav ul li a {
+    color: #6b2c5c; /* Deep purple-pink text */
+    text-decoration: none;
+    font-size: 1.1em; /* More compact font size */
+    font-weight: 500; /* Medium weight */
+    transition: all 0.3s ease; /* Smooth transition */
+    padding: 10px 20px; /* Compact padding for each link */
+    border-radius: 20px; /* Rounded corners for links */
+    white-space: nowrap; /* Prevent text wrapping */
+  }
+  
+  .App-header nav ul li a:hover {
+    color: #4a1c40; /* Darker purple-pink on hover */
+    background-color: rgba(255, 255, 255, 0.3); /* Light white background on hover */
+    transform: translateY(-2px); /* Subtle lift effect */
+  }
+  
+  .App-content {
+    padding: 20px; /* Add some padding to the main content */
+  }
+  
+  .cute-and-pretty-artwork-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 140px; /* Account for header + app padding */
+    box-sizing: border-box;
+    background: linear-gradient(45deg,
+      #ff69b4, /* Pastel pink */
+      #ff9a8b, /* Peach */
+      #f7b267, /* Light orange */
+      #f9d76e, /* Yellow */
+      #a8e6cf, /* Mint */
+      #84fab0, /* Light green */
+      #74ebd5, /* Light blue */
+      #a6c0fe, /* Sky blue */
+      #c4c1e0, /* Pastel lavender */
+      #ff69b4 /* Back to pastel pink */
+    );
+    background-size: 200% 200%;
+    animation: gradientAnimation 10s ease infinite;
+    color: #333; /* Dark text color for contrast */
+    z-index: 0; /* Behind header but above body background */
+  }
+  
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  

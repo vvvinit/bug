@@ -1,0 +1,523 @@
+/* Cat Puzzle Styles */
+
+/* Puzzle Window */
+.puzzle-window {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* Puzzle Container */
+.puzzle-container {
+  background-color: #f2e7f6;
+  padding: 20px;
+  border: 1.5px solid #170028;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 800px;
+  text-align: center;
+  position: relative;
+  height: 500px; /* Fixed height to prevent resizing */
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas: 
+    "header"
+    "content" 
+    "overlay";
+}
+
+/* Puzzle Layout Areas */
+.puzzle-header {
+  grid-area: header;
+  min-height: 50px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+.puzzle-content {
+  grid-area: content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.puzzle-overlay {
+  grid-area: overlay;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  pointer-events: none; /* Allow clicks to pass through when no cat */
+}
+
+/* Hearts Display */
+.hearts {
+  display: flex;
+  justify-content: flex-end;
+  gap: 5px;
+  position: relative;
+  min-height: 40px; /* Ensure space for animations */
+}
+
+.heart-icon {
+  width: 30px;
+  height: auto;
+}
+
+/* Question Container */
+.question-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.question-container h2,
+.question-container p {
+  color: #2e004f;
+}
+
+/* Options */
+.options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.option-button {
+  margin: 5px;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  background-color: #fff;
+  border: 2px solid #4b0082;
+  color: #4b0082;
+  border-radius: 10px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-width: 200px;
+}
+
+.option-button:hover:not(:disabled) {
+  background-color: #4b0082;
+  color: #fff;
+}
+
+.option-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Text Answer */
+.text-answer {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.text-input {
+  padding: 8px 12px;
+  border: 2px solid #4b0082;
+  border-radius: 5px;
+  font-size: 1em;
+  min-width: 200px;
+}
+
+.text-input:focus {
+  outline: none;
+  border-color: #2e004f;
+  box-shadow: 0 0 5px rgba(75, 0, 130, 0.3);
+}
+
+.submit-button {
+  padding: 8px 20px;
+  background-color: #fff;
+  border: 2px solid #4b0082;
+  color: #4b0082;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-size: 1em;
+}
+
+.submit-button:hover:not(:disabled) {
+  background-color: #4b0082;
+  color: #fff;
+}
+
+.submit-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Cute Cat Display */
+.cute-cat {
+  width: 250px;
+  height: auto;
+  opacity: 1;
+  transition: all 0.5s ease;
+  transform: scale(0.8);
+  animation: catAppear 0.5s ease forwards;
+}
+
+@keyframes catAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) rotate(-10deg);
+  }
+  50% {
+    transform: scale(1.1) rotate(5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+/* Gentle Heart Shake Animation */
+@keyframes heartGentleShake {
+  0%, 100% { transform: translateY(0) scale(1); }
+  25% { transform: translateY(-2px) scale(1.05); }
+  50% { transform: translateY(0) scale(0.95); }
+  75% { transform: translateY(-1px) scale(1.02); }
+}
+
+.heart-gentle-shake {
+  animation: heartGentleShake 0.6s ease-in-out;
+}
+
+/* Heart Break Effects Container */
+.heart-break-effects {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 1001;
+}
+
+/* Cute Heart Break Animation */
+@keyframes cuteHeartBreak {
+  0% { 
+    transform: scale(0) rotate(0deg); 
+    opacity: 0; 
+  }
+  30% {
+    transform: scale(1.2) rotate(-5deg);
+    opacity: 1;
+  }
+  70% {
+    transform: scale(1.1) rotate(3deg);
+    opacity: 0.8;
+  }
+  100% { 
+    transform: scale(0.9) rotate(0deg); 
+    opacity: 0; 
+  }
+}
+
+.cute-heart-break {
+  position: relative;
+  font-size: 2.5rem;
+  animation: cuteHeartBreak 1.2s ease-out forwards;
+  filter: hue-rotate(320deg) saturate(0.7); /* Pastel pink tint */
+  text-align: center;
+}
+
+/* Pastel Sparkles Animation */
+@keyframes pastelSparkle {
+  0% { 
+    transform: scale(0) rotate(0deg); 
+    opacity: 0; 
+  }
+  20% {
+    transform: scale(0.8) rotate(90deg);
+    opacity: 0.8;
+  }
+  80% {
+    transform: scale(1.2) rotate(270deg);
+    opacity: 0.6;
+  }
+  100% { 
+    transform: scale(0) rotate(360deg); 
+    opacity: 0; 
+  }
+}
+
+.pastel-sparkles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.pastel-sparkles span {
+  position: absolute;
+  font-size: 1.2rem;
+  animation: pastelSparkle 1.5s ease-out forwards;
+  filter: hue-rotate(300deg) saturate(0.6); /* Pastel effect */
+}
+
+.pastel-sparkles span:nth-child(1) {
+  top: -30px;
+  left: -25px;
+  animation-delay: 0.1s;
+}
+
+.pastel-sparkles span:nth-child(2) {
+  top: -25px;
+  right: -30px;
+  animation-delay: 0.3s;
+}
+
+.pastel-sparkles span:nth-child(3) {
+  bottom: -30px;
+  left: -20px;
+  animation-delay: 0.5s;
+}
+
+.pastel-sparkles span:nth-child(4) {
+  bottom: -25px;
+  right: -25px;
+  animation-delay: 0.7s;
+}
+
+/* Game Results Container */
+.game-result-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  z-index: 1000;
+}
+
+/* Congratulations Window */
+.congratulations-window {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #ffeef8, #f8d7da);
+  padding: 40px;
+  border: 3px solid #e8a2aa;
+  border-radius: 25px;
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 10px 30px rgba(232, 162, 170, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.congratulations-window::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 182, 193, 0.1) 0%, transparent 70%);
+  animation: celebrationGlow 3s ease-in-out infinite;
+}
+
+/* Game Over Message */
+.game-over-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #f5c2c7, #f1aeb5);
+  padding: 40px;
+  border: 3px solid #d8b4fe;
+  border-radius: 25px;
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 10px 30px rgba(216, 180, 254, 0.3);
+  position: relative;
+}
+
+/* Result Emojis */
+.result-emoji {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  animation: gentleBounce 2s ease-in-out infinite;
+}
+
+.celebration-emojis {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+}
+
+.celebration-emojis span {
+  animation: celebrationBounce 1.5s ease-in-out infinite;
+}
+
+.celebration-emojis span:nth-child(1) { animation-delay: 0s; }
+.celebration-emojis span:nth-child(2) { animation-delay: 0.3s; }
+.celebration-emojis span:nth-child(3) { animation-delay: 0.6s; }
+
+/* Text Styling */
+.congratulations-window h2,
+.game-over-message h2 {
+  color: #6b2c5c;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.congratulations-window p,
+.game-over-message p {
+  color: #5a2448;
+  margin-bottom: 25px;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+/* Celebration Cat */
+.celebration-cat {
+  width: 180px;
+  height: auto;
+  margin: 20px 0;
+  animation: catCelebration 2s ease-in-out infinite;
+  filter: drop-shadow(0 5px 15px rgba(232, 162, 170, 0.4));
+}
+
+/* Sparkles */
+.victory-sparkles,
+.encouragement-sparkles {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+  font-size: 1.5rem;
+}
+
+.victory-sparkles span,
+.encouragement-sparkles span {
+  animation: sparkleFloat 2s ease-in-out infinite;
+}
+
+.victory-sparkles span:nth-child(1) { animation-delay: 0s; }
+.victory-sparkles span:nth-child(2) { animation-delay: 0.4s; }
+.victory-sparkles span:nth-child(3) { animation-delay: 0.8s; }
+.victory-sparkles span:nth-child(4) { animation-delay: 1.2s; }
+.victory-sparkles span:nth-child(5) { animation-delay: 1.6s; }
+
+.encouragement-sparkles span:nth-child(1) { animation-delay: 0.2s; }
+.encouragement-sparkles span:nth-child(2) { animation-delay: 0.6s; }
+.encouragement-sparkles span:nth-child(3) { animation-delay: 1s; }
+
+/* Cute Restart Button */
+.cute-restart-button {
+  background: linear-gradient(135deg, #d8b4fe, #c084fc);
+  color: #6b2c5c;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(216, 180, 254, 0.3);
+  margin-top: 10px;
+  pointer-events: auto;
+  position: relative;
+  z-index: 1002;
+}
+
+.cute-restart-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(216, 180, 254, 0.4);
+  background: linear-gradient(135deg, #c084fc, #a855f7);
+}
+
+/* Animations */
+@keyframes celebrationGlow {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes gentleBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes celebrationBounce {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-8px) rotate(-5deg); }
+  75% { transform: translateY(-4px) rotate(5deg); }
+}
+
+@keyframes catCelebration {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.05) rotate(2deg); }
+}
+
+@keyframes sparkleFloat {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-8px) scale(1.1); }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .puzzle-window {
+    padding: 0.5rem;
+  }
+  
+  .puzzle-container {
+    padding: 15px;
+    height: 450px;
+    max-width: 95vw;
+  }
+  
+  .cute-cat {
+    width: 180px;
+  }
+  
+  .option-button {
+    min-width: 150px;
+    font-size: 0.9em;
+  }
+  
+  .text-input {
+    min-width: 150px;
+  }
+  
+  .cute-cat {
+    width: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .text-answer {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .text-input,
+  .option-button {
+    min-width: 120px;
+  }
+}
