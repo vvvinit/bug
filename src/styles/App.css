@@ -6,7 +6,13 @@
 }
 
 .App-header {
-    background: linear-gradient(135deg, #d8b4fe, #c084fc); /* Pastel purple gradient */
+    background: linear-gradient(135deg, 
+      #ffeef8 0%,    /* Very light pink */
+      #f8d7da 25%,   /* Soft pink */
+      #f5c2c7 50%,   /* Medium pink */
+      #f1aeb5 75%,   /* Deeper pink */
+      #e8a2aa 100%   /* Rich pink */
+    );
     color: #6b2c5c; /* Deep purple-pink text */
     padding: 15px 30px; /* Compact padding */
     position: -webkit-sticky; /* For Safari */
@@ -18,7 +24,7 @@
     margin-left: auto;
     margin-right: auto;
     z-index: 1001; /* Ensure it stays on top of artwork background */
-    box-shadow: 0 4px 20px rgba(214, 188, 250, 0.3); /* Pastel purple shadow */
+    box-shadow: 0 4px 20px rgba(232, 162, 170, 0.3); /* Pastel pink shadow */
     border-radius: 30px; /* More rounded for pill shape */
     border: 2px solid rgba(255, 255, 255, 0.4); /* Subtle white border */
     transition: all 0.3s ease; /* Smooth transition */
@@ -27,7 +33,7 @@
   
   .App-header:hover {
     border-color: rgba(255, 182, 193, 0.6); /* Pink border on hover */
-    box-shadow: 0 6px 25px rgba(214, 188, 250, 0.4); /* Enhanced shadow on hover */
+    box-shadow: 0 6px 25px rgba(232, 162, 170, 0.4); /* Pink shadow on hover */
   }
   
   .App-header nav ul {
