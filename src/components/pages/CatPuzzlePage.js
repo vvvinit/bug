@@ -27,7 +27,6 @@ const CatPuzzlePage = () => {
 
   // Enhanced reset function that also updates the key
   const handleReset = useCallback(() => {
-    console.log('handleReset called');
     resetGame();
     setGameKey(Date.now()); // Use timestamp for unique key
   }, [resetGame]);

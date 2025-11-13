@@ -15,15 +15,7 @@ const GameResult = ({ puzzleComplete, gameOver, onRestart }) => {
             <span>💫</span>
           </div>
           {onRestart && (
-            <button 
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                console.log('Try again clicked!');
-                onRestart();
-              }} 
-              className="cute-restart-button"
-            >
+            <button onClick={onRestart} className="cute-restart-button">
               🐾 try again 🐾
             </button>
           )}
@@ -52,15 +44,7 @@ const GameResult = ({ puzzleComplete, gameOver, onRestart }) => {
             <span>🎀</span>
           </div>
           {onRestart && (
-            <button 
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                console.log('Play again clicked!');
-                onRestart();
-              }} 
-              className="cute-restart-button"
-            >
+            <button onClick={onRestart} className="cute-restart-button">
               🐱 play again 🐱
             </button>
           )}

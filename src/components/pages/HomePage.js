@@ -10,8 +10,8 @@ const HomePage = () => {
   return (
     <div className="home-page">
       <div className="home-content">
-        <h1>welcome to bug! 🐱</h1>
-        <p>a cute surprise made with love</p>
+        <h1>welcome to bugdew! 🐱</h1>
+        <p>a cute surprise made for sweet bug</p>
         
         <div className="home-navigation">
           <Link to={ROUTES.CAT_PUZZLE} className="home-link">
