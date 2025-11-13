@@ -27,7 +27,7 @@ function AppContent() {
 
 function App() {
   return (
-    <Router>
+    <Router basename="/bug">
       <AppContent />
     </Router>
   );
